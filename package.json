@@ -1,0 +1,19 @@
+{
+  "name": "sausage-router",
+  "version": "1.0.0",
+  "description": "an html5 pushState router",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TehShrike/sausage-router.git"
+  },
+  "author": "TehShrike",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/TehShrike/sausage-router/issues"
+  },
+  "homepage": "https://github.com/TehShrike/sausage-router#readme"
+}
