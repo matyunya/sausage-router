@@ -4,7 +4,10 @@
   "description": "an html5 pushState router",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"All the tests have to run in the browser at the moment\" && exit 0",
+    "watch": "watchify test/router-test.js -o testbuild.js -d",
+    "testbuild": "browserify test/router-test.js -o testbuild.js -d",
+    "browserstackbuild": "browserify test/router-test.js node_modules/browserstack-tape-reporter/index.js -o testbuild.js -d"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/TehShrike/sausage-router/issues"
   },
-  "homepage": "https://github.com/TehShrike/sausage-router#readme"
+  "homepage": "https://github.com/TehShrike/sausage-router#readme",
+  "devDependencies": {
+    "browserify": "11.0.1",
+    "browserstack-tape-reporter": "1.0.0",
+    "hash-brown-router": "1.5.1",
+    "tape": "4.2.0",
+    "watchify": "3.3.1"
+  }
 }
