@@ -4,11 +4,8 @@
   "description": "an html5 pushState router",
   "main": "index.js",
   "scripts": {
-    "test": "npm run browserstack",
-    "watch": "watchify test/router-test.js -o testbuild.js -d",
-    "testbuild": "browserify test/router-test.js -o testbuild.js -d",
-    "browserstackbuild": "browserify test/router-test.js node_modules/browserstack-tape-reporter/index.js -o testbuild.js -d",
-    "browserstack": "npm run browserstackbuild && browserstack-runner"
+    "test": "browserify test/router-test.js | tape-run",
+    "watch": "watchify test/router-test.js -o browser-test.js -d"
   },
   "repository": {
     "type": "git",
@@ -21,12 +18,14 @@
   },
   "homepage": "https://github.com/TehShrike/sausage-router#readme",
   "devDependencies": {
+    "browser-run": "3.5.0",
     "browserify": "11.0.1",
     "browserstack-runner": "0.3.7",
     "browserstack-tape-reporter": "1.0.0",
     "hash-brown-router": "1.5.1",
     "tap-browser-color": "0.1.2",
     "tape": "4.2.0",
+    "tape-run": "3.0.0",
     "watchify": "3.3.1"
   }
 }
