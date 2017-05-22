@@ -26,5 +26,5 @@ module.exports = function SausageLocation(root) {
 }
 
 function get() {
-	return window.location.pathname + window.location.search
+	return decodeURI(window.location.pathname) + window.location.search
 }
