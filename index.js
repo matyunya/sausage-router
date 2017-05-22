@@ -1,4 +1,4 @@
-var EventEmitter = require('events')
+var EventEmitter = require('eventemitter3')
 var joinPath = require('path').join
 
 module.exports = function SausageLocation(root) {
