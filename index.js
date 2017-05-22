@@ -1,5 +1,4 @@
 var EventEmitter = require('eventemitter3')
-var joinPath = require('path').join
 
 module.exports = function SausageLocation(root) {
 	var emitter = new EventEmitter()
@@ -8,7 +7,7 @@ module.exports = function SausageLocation(root) {
 
 	function stateChange(functionName, newPath) {
 		if (last !== emitter.get()) {
-			history[functionName]({}, '', joinPath('/', root, newPath))
+			history[functionName]({}, '', joinPath(root, newPath))
 			emitter.emit('hashchange')
 		}
 	}
@@ -27,4 +26,21 @@ module.exports = function SausageLocation(root) {
 
 function get() {
 	return decodeURI(window.location.pathname) + window.location.search
+}
+
+function joinPath(first, second) {
+	var slashlessFirst = trimSlashes(first)
+	var slashlessSecond = trimSlashes(second)
+
+	if (slashlessFirst && slashlessSecond) {
+		return '/' + slashlessFirst + '/' + slashlessSecond
+	} else if (slashlessFirst) {
+		return '/' + slashlessFirst
+	} else {
+		return '/' + slashlessSecond
+	}
+}
+
+function trimSlashes(pathChunk) {
+	return pathChunk.replace(/^\/|\/$/g, '')
 }
