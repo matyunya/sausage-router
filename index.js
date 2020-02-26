@@ -5,7 +5,7 @@ module.exports = function SausageLocation(root) {
 	var last = ''
 	root = root || ''
 
-	window.addEventListener('popstate', function() {
+	window.addEventListener('popstate', function () {
 		if (last !== emitter.get()) {
 			last = emitter.get()
 			emitter.emit('hashchange')
@@ -20,11 +20,11 @@ module.exports = function SausageLocation(root) {
 		}
 	}
 
-	emitter.go = function(newPath) {
-		stateChange('pushState', newPath)
+	emitter.go = function (newPath) {
+		stateChange('pushState', decodeURIComponent(newPath))
 	}
 
-	emitter.replace = function(newPath) {
+	emitter.replace = function (newPath) {
 		stateChange('replaceState', newPath)
 	}
 	emitter.get = get
